@@ -4,5 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id = "numberGeneratorId" class = "code.NumberGeneratorImpl"/>
+    <bean id= "gameId" class="code.GameImpl">
+        <constructor-arg ref= "numberGeneratorId"/>
+    </bean>
 
 </beans>

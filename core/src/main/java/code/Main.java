@@ -12,14 +12,19 @@ public class Main {
     public static void main(String[] args) {
         logger.info("Lets start the game");
 
-        // Code to create a new context (container )
+        // Code to create a new context for (container )
 
         ConfigurableApplicationContext newContext = new ClassPathXmlApplicationContext(CONFIG_LOCATION);
 
+        // getting number-generator bean
+
         NumberGenerator numberGenerator = newContext.getBean("numberGeneratorId",NumberGenerator.class);
 
-        int generatedNumber = numberGenerator.next();
-        System.out.println("generated number = "+generatedNumber);
+        // getting game bean
+
+        Game game = newContext.getBean("gameId",Game.class);
+
+        game.reset();
 
         newContext.close();
 
